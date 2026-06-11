@@ -12,7 +12,7 @@
 - [Relación con el proyecto TFM](#relación-con-el-proyecto-tfm)
 - [Funcionalidades](#funcionalidades)
 - [Estructura del Proyecto](#estructura-del-proyecto)
-- [Notebook](#notebook)
+- [Notebooks](#notebooks)
 - [Hallazgos Clave](#hallazgos-clave)
 - [Stack Tecnológico](#stack-tecnológico)
 - [Instalación y Puesta en Marcha](#instalación-y-puesta-en-marcha)
@@ -58,7 +58,7 @@ El dataset utilizado es la versión preprocesada publicada en HF Hub: 257.709 re
 - 🔲 Comparativa de comorbilidades entre población diabética y no diabética
 - 🔲 Análisis avanzado con window functions — percentiles y rankings por clase
 - 🔲 Hallazgos clave con cifras reales extraídas de las queries
-- 🔲 CI/CD con GitHub Actions — ejecución automática del notebook en cada push
+- 🔲 CI/CD con GitHub Actions — ejecución automática de los notebooks en cada push
 
 ---
 
@@ -69,15 +69,18 @@ brfss2015-diabetes-sql-analysis/
 │
 ├── .github/
 │   └── workflows/
-│       └── ci.yml                  # CI — ejecución del notebook con nbconvert
+│       └── ci.yml                      # CI — ejecución de notebooks con nbconvert
 │
 ├── notebooks/
-│   └── 01_sql_analysis.ipynb       # Análisis SQL completo con DuckDB
+│   ├── 01_eda_sql.ipynb                # Perfil epidemiológico — GROUP BY, CASE WHEN
+│   ├── 02_risk_factors_sql.ipynb       # Factores de riesgo modificables — CTEs, subqueries
+│   └── 03_advanced_sql.ipynb           # Window functions + hallazgos clave
 │
 ├── data/
-│   └── .gitkeep                    # Dataset cargado desde HF Hub — no incluido en Git
+│   └── .gitkeep                        # Dataset cargado desde HF Hub — no incluido en Git
 │
 ├── .gitignore
+├── LICENSE
 ├── pyproject.toml
 ├── requirements.txt
 └── README.md
@@ -85,17 +88,25 @@ brfss2015-diabetes-sql-analysis/
 
 ---
 
-## Notebook
+## Notebooks
 
-### `01_sql_analysis.ipynb`
-
-El notebook está organizado en cuatro secciones de complejidad creciente:
+### `01_eda_sql.ipynb` — Perfil epidemiológico
 
 | Sección | Contenido | Técnicas SQL |
 |---|---|---|
 | **0 — Setup** | Carga del dataset desde HF Hub, registro en DuckDB, validación del esquema | `SELECT COUNT`, inspección de tipos |
 | **1 — Perfil de la población** | Distribución por edad, IMC y sexo cruzada con clase diabética | `GROUP BY`, `CASE WHEN`, `HAVING`, `ROUND` |
-| **2 — Factores de riesgo modificables** | Delta de medias entre clases, prevalencia por actividad física × IMC, comparativa de comorbilidades | Subqueries, CTEs, `JOIN` sobre agregados, `AVG` |
+
+### `02_risk_factors_sql.ipynb` — Factores de riesgo modificables
+
+| Sección | Contenido | Técnicas SQL |
+|---|---|---|
+| **2 — Factores de riesgo** | Delta de medias entre clases, prevalencia por actividad física × IMC, comparativa de comorbilidades | Subqueries, CTEs, `JOIN` sobre agregados, `AVG` |
+
+### `03_advanced_sql.ipynb` — Análisis avanzado y hallazgos
+
+| Sección | Contenido | Técnicas SQL |
+|---|---|---|
 | **3 — Análisis avanzado** | Percentiles de dieta por clase, ranking de grupos de edad por prevalencia | `PERCENT_RANK()`, `ROW_NUMBER()`, `PARTITION BY` |
 | **4 — Hallazgos clave** | Conclusiones cuantificadas con cifras reales extraídas de las queries | — |
 
@@ -173,12 +184,10 @@ El dataset se utiliza exclusivamente con fines de investigación y desarrollo. L
 | Estado | Componente |
 |---|---|
 | ✅ | Estructura del proyecto y documentación |
-| 🔲 | Carga del dataset desde HF Hub con DuckDB |
-| 🔲 | Perfil epidemiológico — distribución por edad, IMC y sexo |
-| 🔲 | Análisis de factores de riesgo modificables con CTEs |
-| 🔲 | Análisis avanzado con window functions |
-| 🔲 | Hallazgos clave con cifras reales |
-| 🔲 | CI/CD con GitHub Actions — ejecución automática del notebook |
+| 🔲 | `01_eda_sql` — carga del dataset, perfil epidemiológico |
+| 🔲 | `02_risk_factors_sql` — factores de riesgo modificables con CTEs |
+| 🔲 | `03_advanced_sql` — window functions y hallazgos clave |
+| 🔲 | CI/CD con GitHub Actions — ejecución automática de notebooks |
 | 🔲 | Visualizaciones complementarias con matplotlib/seaborn |
 
 ---
