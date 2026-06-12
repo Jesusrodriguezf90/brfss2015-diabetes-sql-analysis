@@ -192,7 +192,7 @@ El dataset se utiliza exclusivamente con fines de investigación y desarrollo. L
 | ✅ | `02_risk_factors_sql` — factores de riesgo modificables con CTEs |
 | ✅ | `03_advanced_sql` — window functions y hallazgos clave |
 | ✅ | CI/CD con GitHub Actions — ejecución automática de notebooks |
-| 🔲 | Visualizaciones complementarias con matplotlib/seaborn |
+| ✅ | Visualizaciones complementarias con matplotlib/seaborn |
 
 ---
 
