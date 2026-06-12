@@ -1,0 +1,47 @@
+name: CI — BRFSS 2015 SQL Analysis
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  notebooks:
+    name: Ejecución de notebooks
+    runs-on: ubuntu-latest
+    # Forzar Node.js 24 para evitar el warning de deprecación de Node.js 20
+    # GitHub Actions eliminará Node.js 20 el 16 de septiembre de 2026
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Instalar dependencias
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Ejecutar 01_eda_sql.ipynb
+        run: |
+          jupyter nbconvert --to notebook --execute notebooks/01_eda_sql.ipynb \
+            --ExecutePreprocessor.timeout=300
+
+      - name: Ejecutar 02_risk_factors_sql.ipynb
+        run: |
+          jupyter nbconvert --to notebook --execute notebooks/02_risk_factors_sql.ipynb \
+            --ExecutePreprocessor.timeout=300
+
+      - name: Ejecutar 03_advanced_sql.ipynb
+        run: |
+          jupyter nbconvert --to notebook --execute notebooks/03_advanced_sql.ipynb \
+            --ExecutePreprocessor.timeout=300

@@ -58,7 +58,7 @@ El dataset utilizado es la versión preprocesada publicada en HF Hub: 257.709 re
 - ✅ Comparativa de comorbilidades entre población diabética y no diabética
 - ✅ Análisis avanzado con window functions — percentiles y rankings por clase
 - ✅ Hallazgos clave con cifras reales extraídas de las queries
-- 🔲 CI/CD con GitHub Actions — ejecución automática de los notebooks en cada push
+- ✅ CI/CD con GitHub Actions — ejecución automática de los notebooks en cada push
 
 ---
 
@@ -133,7 +133,7 @@ brfss2015-diabetes-sql-analysis/
 | Dataset | [HF Hub](https://huggingface.co/datasets/Jesusrodriguezf90/brfss2015-diabetes-detection) | Fuente de datos — cargado directamente con `pd.read_csv` |
 | Visualización | [matplotlib](https://matplotlib.org/) / [seaborn](https://seaborn.pydata.org/) | Gráficos complementarios a los resultados SQL |
 | Entorno | [Jupyter](https://jupyter.org/) | Desarrollo interactivo del análisis |
-| CI/CD | [GitHub Actions](https://github.com/features/actions) | Ejecución automática del notebook en cada push |
+| CI/CD | [GitHub Actions](https://github.com/features/actions) | Ejecución automática de los notebooks en cada push |
 
 ---
 
@@ -191,7 +191,7 @@ El dataset se utiliza exclusivamente con fines de investigación y desarrollo. L
 | ✅ | `01_eda_sql` — carga del dataset, perfil epidemiológico |
 | ✅ | `02_risk_factors_sql` — factores de riesgo modificables con CTEs |
 | ✅ | `03_advanced_sql` — window functions y hallazgos clave |
-| 🔲 | CI/CD con GitHub Actions — ejecución automática de notebooks |
+| ✅ | CI/CD con GitHub Actions — ejecución automática de notebooks |
 | 🔲 | Visualizaciones complementarias con matplotlib/seaborn |
 
 ---
