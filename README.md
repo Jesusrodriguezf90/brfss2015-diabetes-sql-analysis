@@ -50,12 +50,12 @@ El dataset utilizado es la versión preprocesada publicada en HF Hub: 257.709 re
 
 > Las funcionalidades marcadas con 🔲 están especificadas y pendientes de implementación.
 
-- 🔲 Carga del dataset directamente desde HF Hub — sin datos locales
-- 🔲 Registro del DataFrame de pandas como tabla DuckDB — sin servidor, sin configuración
-- 🔲 Perfil epidemiológico de la población por edad, IMC y sexo con etiquetas CDC decodificadas
-- 🔲 Análisis de prevalencia de diabetes por categorías clínicas
-- 🔲 Cuantificación del impacto de factores de riesgo modificables — dieta, ejercicio y actividad física
-- 🔲 Comparativa de comorbilidades entre población diabética y no diabética
+- ✅ Carga del dataset directamente desde HF Hub — sin datos locales
+- ✅ Registro del DataFrame de pandas como tabla DuckDB — sin servidor, sin configuración
+- ✅ Perfil epidemiológico de la población por edad, IMC y sexo con etiquetas CDC decodificadas
+- ✅ Análisis de prevalencia de diabetes por categorías clínicas
+- ✅ Cuantificación del impacto de factores de riesgo modificables — dieta, ejercicio y actividad física
+- ✅ Comparativa de comorbilidades entre población diabética y no diabética
 - 🔲 Análisis avanzado con window functions — percentiles y rankings por clase
 - 🔲 Hallazgos clave con cifras reales extraídas de las queries
 - 🔲 CI/CD con GitHub Actions — ejecución automática de los notebooks en cada push
@@ -153,8 +153,8 @@ source venv/bin/activate        # En Windows: venv\Scripts\activate
 # 3. Instalar dependencias
 pip install -r requirements.txt
 
-# 4. Abrir el notebook
-jupyter notebook notebooks/01_sql_analysis.ipynb
+# 4. Abrir el primer notebook
+jupyter notebook notebooks/01_eda_sql.ipynb
 ```
 
 ---
@@ -184,8 +184,8 @@ El dataset se utiliza exclusivamente con fines de investigación y desarrollo. L
 | Estado | Componente |
 |---|---|
 | ✅ | Estructura del proyecto y documentación |
-| 🔲 | `01_eda_sql` — carga del dataset, perfil epidemiológico |
-| 🔲 | `02_risk_factors_sql` — factores de riesgo modificables con CTEs |
+| ✅ | `01_eda_sql` — carga del dataset, perfil epidemiológico |
+| ✅ | `02_risk_factors_sql` — factores de riesgo modificables con CTEs |
 | 🔲 | `03_advanced_sql` — window functions y hallazgos clave |
 | 🔲 | CI/CD con GitHub Actions — ejecución automática de notebooks |
 | 🔲 | Visualizaciones complementarias con matplotlib/seaborn |
