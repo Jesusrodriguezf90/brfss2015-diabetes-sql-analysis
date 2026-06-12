@@ -56,8 +56,8 @@ El dataset utilizado es la versión preprocesada publicada en HF Hub: 257.709 re
 - ✅ Análisis de prevalencia de diabetes por categorías clínicas
 - ✅ Cuantificación del impacto de factores de riesgo modificables — dieta, ejercicio y actividad física
 - ✅ Comparativa de comorbilidades entre población diabética y no diabética
-- 🔲 Análisis avanzado con window functions — percentiles y rankings por clase
-- 🔲 Hallazgos clave con cifras reales extraídas de las queries
+- ✅ Análisis avanzado con window functions — percentiles y rankings por clase
+- ✅ Hallazgos clave con cifras reales extraídas de las queries
 - 🔲 CI/CD con GitHub Actions — ejecución automática de los notebooks en cada push
 
 ---
@@ -116,7 +116,11 @@ brfss2015-diabetes-sql-analysis/
 
 > Resultados extraídos directamente de las queries SQL sobre el dataset completo (257.709 registros).
 
-🔲 *Pendiente de completar tras la ejecución del notebook.*
+- La **prevalencia global de diabetes** en la muestra es del **11.0%** — desbalance 8:1 respecto a la clase negativa.
+- El **grupo de edad con mayor prevalencia** es **75-79 años (19.0%)**, con diferencia significativa por sexo: 22.9% en hombres frente a 16.4% en mujeres.
+- La **obesidad multiplica por 4.4 la prevalencia** respecto al normopeso: **20.8% vs 4.7%**.
+- El **73.2% de los diabéticos** presenta hipertensión confirmada, frente al **32.2% de los no diabéticos** — el mayor delta de todas las comorbilidades analizadas.
+- La **mediana de consumo de fruta (P50)** es ligeramente inferior en diabéticos: **1.02 vs 1.11 porciones/día**.
 
 ---
 
@@ -186,7 +190,7 @@ El dataset se utiliza exclusivamente con fines de investigación y desarrollo. L
 | ✅ | Estructura del proyecto y documentación |
 | ✅ | `01_eda_sql` — carga del dataset, perfil epidemiológico |
 | ✅ | `02_risk_factors_sql` — factores de riesgo modificables con CTEs |
-| 🔲 | `03_advanced_sql` — window functions y hallazgos clave |
+| ✅ | `03_advanced_sql` — window functions y hallazgos clave |
 | 🔲 | CI/CD con GitHub Actions — ejecución automática de notebooks |
 | 🔲 | Visualizaciones complementarias con matplotlib/seaborn |
 
