@@ -3,6 +3,7 @@ duckdb>=1.0.0
 
 # Manipulación de datos
 pandas>=2.0.0
+numpy>=1.26.0
 
 # Cliente HF Hub — carga del dataset
 huggingface_hub>=0.23.0
@@ -14,6 +15,3 @@ seaborn>=0.12.0
 # Notebooks
 jupyter>=1.0.0
 nbconvert>=7.0.0
-
-# Variables de entorno
-python-dotenv>=1.0.0
